@@ -49,5 +49,6 @@ let rec append lst1 lst2 =
   match lst1 with
   | [] -> lst2
   | h::t -> h::append t lst2
+;;
 
-  
+(* print_endline(append list1 list2) *)
