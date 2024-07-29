@@ -37,6 +37,21 @@ let rec head_option lst =
   | h::t -> h + head_option t
 ;;
 
+(* Write a function swap that takes a tuple (a, b) and returns a tuple (b, a) using pattern matching. *)
+
+let tuple = (12,23,45);;
+let swap (int1,int2)  =
+  match (int1,int2) with
+  | (int1,int2) -> (int2,int1)
+;;
+
+(* squaring the element of the lists *)
+
+let sq x = x*x;;
+
+let sqlist = List.map sq [12;23;123;32];;
+
+
 
 
 
