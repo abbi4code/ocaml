@@ -26,6 +26,21 @@ let checkeven x =
   else false
 ;;
 
+(* question 2
+Write a function head_option that takes a list and 
+returns Some of the head element if the list is non-empty,
+and None if the list is empty. *)
+
+let rec head_option lst =
+  match lst with 
+  | [] -> 0
+  | h::t -> h + head_option t
+;;
+
+
+
+
+
 
 
 
