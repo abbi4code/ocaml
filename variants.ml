@@ -45,4 +45,16 @@ let center s =
   ;;
 
 
+type person = 
+  | Child of {name: string ; age: int}
+  | Woman of {name: string ; age: int}
+;;
+
+let child1 = Child {name= "abhishek";age= 19};;
+let woman1 = Child {name= "abhii";age= 24};;
+
+
+
+
+
 
