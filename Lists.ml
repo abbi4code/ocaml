@@ -32,3 +32,15 @@ let rec reverse lst =
   | h::t -> (reverse t) @ [h]
 ;;
 
+
+let rec sum = function 
+  | [] -> 0
+  | h::t -> h + sum t
+;;
+
+let half x = x/2;;
+let halfchk x = x mod 2 = 0;;
+
+
+let sum = List.map half [12;45;34];;
+let halfarr = List.filter halfchk [20;21;23];;
