@@ -24,3 +24,11 @@ let uppercase = List.map String.uppercase_ascii countries;;
 let check_even x = x mod 2 == 0;; 
 let fil_list = List.filter check_even [12;34;45;55;44];;
 
+(* reversing a list *)
+
+let rec reverse lst =
+  match lst with
+  | [] -> []
+  | h::t -> (reverse t) @ [h]
+;;
+
