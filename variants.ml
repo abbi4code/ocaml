@@ -6,10 +6,13 @@ type point = float * float ;;
 type shape =
   | Circle of {center: point ; radius: float}
   | Square of {lw_lft: point ; upr_rt: point}
+  | Cylinder of {center: point;radius: float ; height: float}
 ;;
 
 let c1 = Circle {center = (2.3,3.4); radius = 4.5}
 let r1 = Square {lw_lft = (1.0,2.0); upr_rt = (3.5,4.5)}
+
+let cyl  = Cylinder {center = (0.0,0.0);radius = 5.6 ; height = 7.0}
 
 let avg a b =
   (a +. b) /. 2. 
@@ -27,13 +30,19 @@ let avg a b =
 
   ;;
 
+  let cylvol r h =
+    3.14 *. r *. r *. h ;;
+  ;;
+
   (* this is much cleaner will help when dealing with more complexity *)
+
 let center s = 
   match s with
   | Circle {center; radius} -> center
   | Square {lw_lft = (x_ll, y_ll) ; upr_rt = (x_ur, y_ur)} -> 
     (avg x_ll x_ur, avg y_ll y_ur) 
-
+  | Cylinder {radius; height;_} -> (cylvol radius height, 0.0)
+  ;;
 
 
 
