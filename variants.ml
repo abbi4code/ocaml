@@ -51,7 +51,7 @@ type person =
 ;;
 
 let child1 = Child {name= "abhishek";age= 19};;
-let woman1 = Child {name= "abhii";age= 24};;
+let woman1 = Child {name= "abhiiii";age= 24};;
 
 
 
