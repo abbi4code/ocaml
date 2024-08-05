@@ -75,6 +75,32 @@ with
        raise e
 ;;
 
+(* Trees revision 
+creating a tree 2 3 4 5 6 7 8*)
+
+type 'a tree =
+| Leaf 
+| Node of int * 'a tree * 'a tree
+;;
+
+let t2 = 
+  Node(2,
+      Node(3,
+        Node(5,Leaf,Leaf),
+        Node(6,Leaf,Leaf)),
+      Node(4,
+        Node(7,Leaf,Leaf),
+        Node(8,Leaf,Leaf))
+
+);;
+
+let rec length t=
+  match t with
+  | Leaf -> 0
+  | Node (_,left_node,right_node) -> 1 + length left_node + length right_node 
+;;
+
+
 
 
 

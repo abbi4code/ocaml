@@ -1,5 +1,3 @@
-128 + 64 + 32 = 224
-13 + 2 = 15
-= 0
-2 = 2
-224 + 15 + 0 + 2 = 241
+sq: RV128 only, not RV64 nor RV32
+lr (? Figure A.13, part 2)
+jalr: broken 2 times
