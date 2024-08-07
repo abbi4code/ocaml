@@ -59,21 +59,20 @@ input_line *)
 let read_file filename =
   let ic = open_in filename in 
   try
-    let rec read_lines() =
+    let rec lines() =
     try
-      let line = input_line ic in
-      print_endline(line);
-      read_lines()
+      let each_line = input_line ic in
+      print_endline(each_line);
+      lines()
     with
-    | End_of_file -> ();
-  in
-  read_lines();
-  close_in ic
-with
-| e -> 
-       close_in_noerr ic;
-       raise e
-;;
+        End_of_file -> ()
+     in 
+      lines();
+      close_in ic
+  with 
+      | e ->
+        close_in_noerr ic;
+        raise e
 
 (* Trees revision 
 creating a tree 2 3 4 5 6 7 8*)

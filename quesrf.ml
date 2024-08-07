@@ -24,7 +24,7 @@ let process_input filename_opt =
     | Some filename -> open_in filename
     | None -> stdin
   in
-  let rec aux total_sum =
+  let rec aux total_sum total_line_sums =
     try
       let line = input_line input_channel in
       let integers, sum = process_line line in
@@ -35,14 +35,15 @@ let process_input filename_opt =
           sum
       else
         Printf.printf "= 0\n";
-      (* Update the total sum *)
-      aux (total_sum + sum)
+      (* Update the total sum and list of line sums *)
+      aux (total_sum + sum) (total_line_sums @ [sum])
     with End_of_file ->
-      (* Print the total sum *)
-      Printf.printf "%d + %d = %d\n" total_sum total_sum total_sum;
+      (* Print the final sum calculation *)
+      let line_sum_str = String.concat " + " (List.map string_of_int total_line_sums) in
+      Printf.printf "%s = %d\n" line_sum_str total_sum;
       if input_channel <> stdin then close_in input_channel
   in
-  aux 0
+  aux 0 []
 
 let () =
   let filename_opt = if Array.length Sys.argv > 1 then Some Sys.argv.(1) else None in
