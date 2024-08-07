@@ -73,6 +73,7 @@ let read_file filename =
       | e ->
         close_in_noerr ic;
         raise e
+      ;;
 
 (* Trees revision 
 creating a tree 2 3 4 5 6 7 8*)
@@ -98,6 +99,7 @@ let rec length t=
   | Leaf -> 0
   | Node (_,left_node,right_node) -> 1 + length left_node + length right_node 
 ;;
+
 
 
 

@@ -44,3 +44,12 @@ let halfchk x = x mod 2 = 0;;
 
 let sum = List.map half [12;45;34];;
 let halfarr = List.filter halfchk [20;21;23];;
+
+let sum_list = [12;23;45;56];;
+
+let t_sum = List.fold_left ( fun acc x -> acc + x ) 10 sum_list;;
+
+Printf.printf "The result is: %d\n " t_sum
+
+
+
