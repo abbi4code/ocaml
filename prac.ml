@@ -101,6 +101,18 @@ let rec length t=
 ;;
 
 
+let newlst = [1;2;4;5;6];;
+
+let revlst = List.rev newlst
+
+(* List.left_fold *)
+
+let mullft ran x = ran * x;;
+let lftfoldsum = List.fold_left mullft 1 newlst
+let lftfoldsum2 = List.fold_left (+) 0 revlst
+
+
+
 
 
 
