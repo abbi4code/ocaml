@@ -11,7 +11,6 @@ let extract_integers line =
     with Not_found -> List.rev acc
   in
   aux [] 0
-
 (* Function to process each line *)
 let process_line line =
   let integers = extract_integers line in
