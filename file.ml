@@ -22,10 +22,18 @@ let extract_integers line =
 (* need to create a function that will sum up the list *)
 let sumlft acc x = acc + x ;;
 
-let () =
+(* let () =
   let result = extract_integers "123hy 56jkl 8j5" in
   let sum = List.fold_left sumlft 0 result in
   print_endline(string_of_int(sum));;
+  
+  (* List.iter (Printf.printf "%d " ) result *)
+;; *)
+let process_line line =
+  let result = extract_integers line in
+  let sum = List.fold_left sumlft 0 result in
+  (result,sum)
+  (* print_endline(string_of_int(sum));; *)
   
   (* List.iter (Printf.printf "%d " ) result *)
 ;;

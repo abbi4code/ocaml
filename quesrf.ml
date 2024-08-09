@@ -8,6 +8,9 @@ let extract_integers line =
       let _ = search_forward re line pos in
       let num = matched_string line in
       aux (int_of_string num :: acc) (match_end ())
+      (* Accumulate: aux (123 :: acc) (match_end ()) is called with acc = [123]
+       and pos = match_end (), where match_end () 
+       returns the position right after "123" (which is 3). *)
     with Not_found -> List.rev acc
   in
   aux [] 0
@@ -17,6 +20,7 @@ let process_line line =
   let integers = extract_integers line in
   let sum = List.fold_left (+) 0 integers in
   (integers, sum)
+  (* this (integers,sum ) means this process_line resurning this two things *)
 
 (* Function to process input from either a file or stdin *)
 let process_input filename_opt =
@@ -46,5 +50,6 @@ let process_input filename_opt =
   aux 0 []
 
 let () =
+print_endline("press ctrl + D to get the results");;
   let filename_opt = if Array.length Sys.argv > 1 then Some Sys.argv.(1) else None in
   process_input filename_opt
