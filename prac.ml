@@ -129,6 +129,9 @@ let extract_integers line =
       bulk (int_of_string number :: acc) (match_end())
       (* now if no number found as list will reverse as everytime  *)
     with Not_found -> List.rev acc 
+  in
+  bulk [] 0
+;;
 
          
 
