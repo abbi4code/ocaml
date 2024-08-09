@@ -23,7 +23,16 @@ let process_line line =
   (* this (integers,sum ) means this process_line resurning this two things *)
 
 (* Function to process input from either a file or stdin *)
+
+(* this proces_input function taking a ext file or standard input 
+then
+  there is another recursive function aux that will take sum of each line and total sum 
+ *)
 let process_input filename_opt =
+  (* so this input_channel take filename 
+  if file is there then it will open it 
+    and if not user can put inputs from terminal
+       *)
   let input_channel = match filename_opt with
     | Some filename -> open_in filename
     | None -> stdin
