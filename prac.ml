@@ -1,6 +1,6 @@
 
 (* appendings two lists into one *)
-
+open Str
 let list1 = [12;23;43;];;
 let list2 = [1;2;3];;
 
@@ -111,6 +111,26 @@ let mullft ran x = ran * x;;
 let lftfoldsum = List.fold_left mullft 1 newlst
 let lftfoldsum2 = List.fold_left (+) 0 revlst
 
+
+(* using str module *)
+
+(* creating a function that will take line as input and extract integer from it and push them in list *)
+
+let extract_integers line =
+  let expp = regexp "[0-9]+" in 
+
+  (* now creating a recusive function that takes a list and pos to start as arg *)
+  let rec bulk acc ind =
+    try
+      let _ = search_forward expp line ind in 
+      (* now getting that number if above is successfull means it able to find a number *)
+        (* matched_string will give you that return number *)
+      let number = matched_string line in 
+      bulk (int_of_string number :: acc) (match_end())
+      (* now if no number found as list will reverse as everytime  *)
+    with Not_found -> List.rev acc 
+
+         
 
 
 
