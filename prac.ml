@@ -109,9 +109,18 @@ let revlst = List.rev newlst
 
 let mullft ran x = ran * x;;
 let lftfoldsum = List.fold_left mullft 1 newlst
-let lftfoldsum2 = List.fold_left (+) 0 revlst
+let lftfoldsum2 = List.fold_left (+) 0 revlst;;
 
 
+(* some string functionss *)
+(* String.concat used to concat a list of strings into a single string
+sep: A string that will be inserted between each pair of elements in the list.
+list_of_strings: A list of strings that you want to concatenate.
+<-----sep is optional----->
+  eg: let result = String.concat ", " ["apple"; "banana"; "cherry"];;
+ *)
+Printf.printf "%s = %d\n"
+  (String.concat " + " (List.map string_of_int newlst))
 
 
          

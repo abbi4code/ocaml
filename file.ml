@@ -37,3 +37,25 @@ let process_line line =
   
   (* List.iter (Printf.printf "%d " ) result *)
 ;;
+
+
+(* -------------revision *)
+
+let line_integers line = 
+  let expp = regexp "[0-9]+" in
+  let rec aux lst pos =
+    try
+      let _ = search_forward expp line pos in 
+      let num = matched_string line in 
+      aux (int_of_string num :: lst) (match_end())
+    with Not_found -> List.rev lst 
+  in 
+  aux [] 0
+;;
+
+let process_line line =
+  let output = line_integers line in
+  let summ = List.fold_left (+) 0 output in
+  (output,summ)
+;;
+
