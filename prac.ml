@@ -1,6 +1,6 @@
 
 (* appendings two lists into one *)
-open Str
+(* open Str *)
 let list1 = [12;23;43;];;
 let list2 = [1;2;3];;
 
@@ -120,7 +120,7 @@ list_of_strings: A list of strings that you want to concatenate.
   eg: let result = String.concat ", " ["apple"; "banana"; "cherry"];;
  *)
 Printf.printf "%s = %d\n"
-  (String.concat " + " (List.map string_of_int newlst))
+  (String.concat " + " (List.map string_of_int newlst)) lftfoldsum ;;
 
 
          

@@ -59,3 +59,24 @@ let process_line line =
   (output,summ)
 ;;
 
+let process_file opt_file =
+  let ic = match opt_file with
+  | some filename -> open_in filename
+  | None -> stdin
+in
+  let rec inp_line total_sum total_line_sums =
+    try
+      let line = input_line ic in 
+      let output,summ = process_line line in 
+      if output <> [] then 
+        Printf.printf "%s = %d\n"
+        (String.concat " + " (List.map string_of_int output)) 
+        summ
+      else
+        Printf.printf "= 0\n";
+      inp_line (total_sum + summ ) (total_line_sums @ [summ])
+    with
+    
+
+        
+
