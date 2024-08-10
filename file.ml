@@ -3,7 +3,7 @@ open Str
 
 (* creating a function that will take line as input and extract integer from it and push them in list *)
 
-let extract_integers line =
+(* let extract_integers line =
   let expp = regexp "[0-9]+" in 
 
   (* now creating a recusive function that takes a list and pos to start as arg *)
@@ -35,7 +35,7 @@ let process_line line =
   (result,sum)
   (* print_endline(string_of_int(sum));; *)
   
-  (* List.iter (Printf.printf "%d " ) result *)
+  List.iter (Printf.printf "%d " ) result *)
 ;;
 
 
@@ -61,7 +61,7 @@ let process_line line =
 
 let process_file opt_file =
   let ic = match opt_file with
-  | some filename -> open_in filename
+  | Some filename -> open_in filename
   | None -> stdin
 in
   let rec inp_line total_sum total_line_sums =
@@ -76,7 +76,19 @@ in
         Printf.printf "= 0\n";
       inp_line (total_sum + summ ) (total_line_sums @ [summ])
     with
-    
+        End_of_file -> 
+          let final_sum_exp = (String.concat " + " (List.map string_of_int total_line_sums)) in 
+          Printf.printf "%s = %d\n" final_sum_exp total_sum;
+          if ic <> stdin then close_in ic
+in 
+inp_line 0 []
+
+let () =
+  let filename_opt = if Array.length Sys.argv > 1 then Some Sys.argv.(1) else None in
+  process_file filename_opt;;
+;;
+
+
 
         
 
