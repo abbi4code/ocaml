@@ -21,3 +21,18 @@ let arr1 = Array.init 5 func ;;
 let arr3  = [|1;2;3;5|];;
 
 (* <----------Accessing Elements--------------> *)
+
+(* To access an element in an array,
+ you use the dot notation with parentheses: *)
+
+ arr3.(1);;
+
+ (*<-------Modifying Elements ---------> *)
+ (* arr.(index) <- new_value *)
+ arr3.(2) <- 56;;
+
+ let len = Array.length arr3;;
+
+ (* Iterating over functions *)
+
+ 
