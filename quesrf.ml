@@ -59,6 +59,7 @@ let process_input filename_opt =
   aux 0 []
 
 let () =
-print_endline("press ctrl + D to get the results");;
+  if Array.length Sys.argv <= 1 then 
+  print_endline("press ctrl + D to get the results");;
   let filename_opt = if Array.length Sys.argv > 1 then Some Sys.argv.(1) else None in
   process_input filename_opt
