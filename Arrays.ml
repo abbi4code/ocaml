@@ -35,4 +35,16 @@ let arr3  = [|1;2;3;5|];;
 
  (* Iterating over functions *)
 
+ (* Array.iter function <arr> *)
+
+ Array.iter (fun x -> print_endline(string_of_int(x))) arr3;;
+ Array.map (fun x -> x + 2) arr3;;
+
+
+ (* sorting  *)
+ (* instead of compare you can apply some function if you want to do 
+  some manupulation *)
  
+
+let arr4 = [|45;342;54;5|];;
+let sortarr = Array.sort compare arr4;;

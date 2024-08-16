@@ -119,8 +119,8 @@ list_of_strings: A list of strings that you want to concatenate.
 <-----sep is optional----->
   eg: let result = String.concat ", " ["apple"; "banana"; "cherry"];;
  *)
-Printf.printf "%s = %d\n"
-  (String.concat " + " (List.map string_of_int newlst)) lftfoldsum ;;
+(* Printf.printf "%s = %d\n"
+  (String.concat " + " (List.map string_of_int newlst)) lftfoldsum ;; *)
 
 
          
