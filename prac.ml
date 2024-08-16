@@ -123,7 +123,14 @@ list_of_strings: A list of strings that you want to concatenate.
   (String.concat " + " (List.map string_of_int newlst)) lftfoldsum ;; *)
 
 
-         
+(* creating a function to create a array of integers from 1 to 10 *)
+
+let intarr x = x + 1;;
+
+let arr_size = int_of_string( read_line()) in 
+let arr = Array.init arr_size intarr in
+
+Array.iter (fun x -> print_endline(string_of_int(x))) arr;;
 
 
 
