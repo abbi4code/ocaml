@@ -30,7 +30,7 @@ let () =
   done
 
 
-  (* using breaks in loops 
+  (* using breaks in iterators 
 
   * OCaml doesn’t have a built-in break statement to exit loops early, 
   but you can achieve a similar effect using exceptions*)
